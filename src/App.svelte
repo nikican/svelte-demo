@@ -5,13 +5,14 @@
   import Buttons from "./Buttons.svelte";
 
   let showHeader = false;
-
+  let score = 0;
+  $: smileySays = "Hi there, you score is: " + score;
+  $: if (score < -4) smileySays = "Wow your score is low!";
   const buttons = [
     { value: 0, text: "ummmmmm......" },
     { value: 1, text: "I sure do!" },
     { value: -2, text: "gross!" }
   ];
-  let score = 0;
 </script>
 
 <style>
@@ -32,7 +33,8 @@
   <Header />
 {/if}
 <Container>
-  Do you like pizza? Score: {score}
+  <h1>{smileySays}</h1>
+  <Face index={2} />
   <Buttons
     {buttons}
     on:click={({ detail }) => {
