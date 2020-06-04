@@ -2,7 +2,7 @@
   export let happyScore = 1;
   export let size = 1;
 
-  const faceList = [
+  const faces = [
     "🤬",
     "😡",
     "😭",
