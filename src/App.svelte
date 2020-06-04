@@ -11,7 +11,7 @@
   $: smileySays = story[storyIndex].smileySays;
   $: buttons = story[storyIndex].buttons;
 
-  const clickHanlder = ({ detail }) => {
+  const clickHandler = ({ detail }) => {
     storyIndex += 1;
     happyScore += detail.value;
   };
@@ -33,6 +33,6 @@
 {/if}
 <Container>
   <h1>{smileySays}</h1>
-  <Face index={2} />
-  <Buttons {buttons} on:click={clickHanlder} />
+  <Face {happyScore} size={storyIndex + 1} />
+  <Buttons {buttons} on:click={clickHandler} />
 </Container>
