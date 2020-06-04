@@ -26,11 +26,8 @@
 {/if}
 <Container>
   <Buttons
-    on:show={() => {
-      showHeader = true;
-    }}
-    on:hide={() => {
-      showHeader = false;
+    on:click={e => {
+      showHeader = e.detail;
     }}>
     show header
   </Buttons>

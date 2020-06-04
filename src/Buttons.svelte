@@ -20,5 +20,5 @@
   }
 </style>
 
-<button on:click={() => dispatch('show')}>Show</button>
-<button on:click={() => dispatch('hide')}>Hide</button>
+<button on:click={() => dispatch('click', true)}>Show</button>
+<button on:click={() => dispatch('click', false)}>Hide</button>
