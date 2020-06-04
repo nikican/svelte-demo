@@ -7,6 +7,12 @@
 </script>
 
 <style>
+  .buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2em 1em;
+  }
   button {
     font-family: "Nunito", sans-serif;
     display: block;
@@ -23,6 +29,8 @@
   }
 </style>
 
-{#each buttons as { value, text }}
-  <button on:click={() => dispatch('click', { value })}>{text}</button>
-{/each}
+<div class="buttons-container">
+  {#each buttons as { value, text }}
+    <button on:click={() => dispatch('click', { value })}>{text}</button>
+  {/each}
+</div>

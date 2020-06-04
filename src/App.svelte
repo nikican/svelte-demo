@@ -8,18 +8,58 @@
   let showHeader = false;
   let happyScore = 0;
   let storyIndex = 0;
-  $: smileySays = story[storyIndex].smileySays;
+  $: smileySays = story[storyIndex].end
+    ? message()
+    : story[storyIndex].smileySays;
   $: buttons = story[storyIndex].buttons;
+  $: if (happyScore > 0 && storyIndex === 3) {
+    showHeader = true;
+  }
+
+  const message = () => {
+    if (happyScore > 0) {
+      return question.end.nice;
+    } else if (happyScore < 0) {
+      return question.end.mean;
+    } else {
+      return question.end.neutral;
+    }
+  };
 
   const clickHandler = ({ detail }) => {
-    storyIndex += 1;
-    happyScore += detail.value;
+    if (detail.value === "reset") {
+      storyIndex = 0;
+      happyScore = 0;
+      showHeader = 0;
+    } else {
+      storyIndex += 1;
+      happyScore += detail.value;
+    }
   };
 
   let name = "";
 </script>
 
 <style>
+  h1 {
+    text-align: center;
+    background: #ff3e00;
+    font-size: 2em;
+    padding: 0.3em 0.6em;
+    color: white;
+    border-radius: 50px;
+  }
+  input {
+    margin: 1em;
+    width: 250px;
+    font-family: "Nunito", sans-serif;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 2em;
+  }
   :global(*) {
     box-sizing: border-box;
   }
