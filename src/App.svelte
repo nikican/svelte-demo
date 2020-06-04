@@ -15,6 +15,14 @@
 
 <div>Say: {say}</div>
 
-<Face size="4" />
-<Face size="10" />
+<Face index={0} />
 <Face />
+<Face index={2} />
+
+<!-- 
+1. add a prop called index in Face.svelte
+2. give it a default value
+3. add a list of faces in Face.svelte
+4. use the index in the list to choose the face
+5. add three faces onto your page.
+-->
