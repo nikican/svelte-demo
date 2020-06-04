@@ -1,5 +1,8 @@
 <script>
   import { createEventDispatcher } from "svelte";
+
+  export let buttons;
+
   const dispatch = createEventDispatcher();
 </script>
 
@@ -20,5 +23,6 @@
   }
 </style>
 
-<button on:click={() => dispatch('click', true)}>Show</button>
-<button on:click={() => dispatch('click', false)}>Hide</button>
+{#each buttons as { value, text }}
+  <button on:click={() => dispatch('click', { value })}>{text}</button>
+{/each}
