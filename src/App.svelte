@@ -2,7 +2,7 @@
   import Face from "./Face.svelte";
   import Container from "./Container.svelte";
   import Header from "./Header.svelte";
-  import Button from "./Button.svelte";
+  import Buttons from "./Buttons.svelte";
 
   let showHeader = false;
 </script>
@@ -25,10 +25,13 @@
   <Header />
 {/if}
 <Container>
-  <Button
-    on:click={() => {
+  <Buttons
+    on:show={() => {
       showHeader = true;
+    }}
+    on:hide={() => {
+      showHeader = false;
     }}>
     show header
-  </Button>
+  </Buttons>
 </Container>

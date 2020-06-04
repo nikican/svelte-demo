@@ -1,3 +1,8 @@
+<script>
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
+</script>
+
 <style>
   button {
     font-family: "Nunito", sans-serif;
@@ -15,6 +20,5 @@
   }
 </style>
 
-<button on:click>
-  <slot />
-</button>
+<button on:click={() => dispatch('show')}>Show</button>
+<button on:click={() => dispatch('hide')}>Hide</button>
